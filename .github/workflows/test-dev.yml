@@ -42,7 +42,7 @@ jobs:
         run: |
           uv venv venv
           source venv/bin/activate
-          uv pip install -e ".[dev,test]"
+          uv pip sync tests/uv.lock
 
       - name: Run unit tests and generate coverage report
         run: |
