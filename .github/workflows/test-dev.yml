@@ -39,7 +39,10 @@ jobs:
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
       - name: Install dependencies
-        run: uv pip sync tests/uv.lock
+        run: |
+          uv venv venv
+          source venv/bin/activate
+          uv pip install -e ".[dev,test]"
 
       - name: Run unit tests and generate coverage report
         run: |
